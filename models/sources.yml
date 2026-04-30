@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: public
+    tables:
+      - name: orders
+        description: "Raw orders loaded from external system"
+        columns:
+          - name: id
+            description: "Unique order identifier"
+          - name: customer_id
+            description: "Reference to customer"
+          - name: product_id
+            description: "Reference to product"
+          - name: quantity
+            description: "Units ordered"
+          - name: order_date
+            description: "Date of order"
+
+      - name: customers
+        description: "Raw customer data"
+        columns:
+          - name: id
+            description: "Unique customer identifier"
+          - name: name
+            description: "Customer name"
+          - name: city
+            description: "Customer city"
+
+      - name: products
+        description: "Raw product data"
+        columns:
+          - name: id
+            description: "Unique product identifier"
+          - name: name
+            description: "Product name"
+          - name: price
+            description: "Product price"

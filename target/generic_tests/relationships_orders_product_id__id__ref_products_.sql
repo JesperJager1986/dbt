@@ -1,0 +1,1 @@
+{{ test_relationships(column_name="product_id", field="id", model=get_where_subquery(ref('orders')), to=ref('products')) }}

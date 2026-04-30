@@ -1,0 +1,43 @@
+version: 2
+
+seeds:
+  - name: customers
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: name
+        tests:
+          - not_null
+
+  - name: products
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: price
+        tests:
+          - not_null
+
+  - name: orders
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('customers')
+                field: id
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('products')
+                field: id
